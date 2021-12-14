@@ -1,22 +1,33 @@
 #!/usr/bin/env python3
 
 import pytest
+
+import day01
 import template_day
 
+@pytest.mark.parametrize("test_input, expected_result",
+                          [([199, 200, 208, 210, 200, 207, 240, 269, 260, 263], 7)])
+def test_file2intList(test_input, expected_result):
+    assert day01.file2intList(test_input) == expected_result
 
-def test_dummy_01():
-    assert template_day.dummy(1) == 2
+@pytest.mark.parametrize("test_input, expected_result",
+                          [([199, 200, 208, 210, 200, 207, 240, 269, 260, 263], 7)])
+def test_file2intList_day_one_part_one(test_input, expected_result):
+    assert day01.file2intList(test_input) == expected_result
 
 
 def test_dummy_02():
     assert template_day.summy([1, 2, 3]) == 6
 
 
+# @pytest.mark.parametrize("test_input, expected_result",
+#                          [([199, 200, 208, 210, 200, 207, 240, 269, 260, 263], 7)])
+
 @pytest.mark.parametrize("test_input, expected_result",
-                         [([10, 10, 10], 30), ([10, 20, 30], 60), ([10, -10, 10], 10), ([1, 1, 1, 1, 1, 1, -8], -2)])
-def test_dummy_03(test_input, expected_result):
-    assert template_day.summy(test_input) == expected_result
+                         [([199, 200, 208, 210, 200, 207, 240, 269, 260, 263], 5)]) # [607, 618, 618, 617, 647, 716, 769, 792], 5)])
+def test_sliding_window_comparison(test_input, expected_result):
+    assert day01.sliding_window_comparison(test_input) == expected_result
 
 # Run tests from terminal:
-# $ pytest test/test_dummy.py
+# $ pytest test/test_day01_part01.py
 
